@@ -1,0 +1,43 @@
+﻿@model UserStoryViewModel
+
+<div class="card mb-3 shadow-sm tamano-card-Lester @(Model.Estado == "Done" ? ViewData["DoneColor"] : "")">
+    <div class="card-body d-flex flex-column">
+        <div class="d-flex align-items-center mb-2">
+            <div class="avatar-container me-3">
+                <img src="@Model.PokemonImageUrl" alt="User Icon" class="user-icon " />
+            </div>
+            
+            <!--me-2 es una clase de Bootstrap para margen a la derecha-->
+            <h5 class="titulo-fijo-Lester mb-0">• @Model.Titulo</h5>
+        </div>
+        
+        <p>@Model.Descripcion</p>
+        
+        @if (Model.Estimacion >= 13)
+        {
+            <div class="alert-estimacion-Lester"> <!--esto es a lo Lester-->
+                ⚠ Historia grande!
+            </div>
+            //<span class="badge bg-danger">⚠ Alta complejidad</span> <!--esto es bootstrap-->
+        }
+        <p></p>
+        <div class="mt-auto">
+            <small><strong>Asignado a:</strong> @Model.NombreUsuario</small><br />
+            <span><small><strong>Estimación:</strong> @Model.Estimacion pts</small></span>
+
+            <form asp-action="Move" method="post" class="mt-3">
+                <input type="hidden" name="id" value="@Model.Id" />
+
+                <select name="nuevoEstado" class="form-select form-select-sm mt-2">
+                    <option value="Backlog" selected="@(Model.Estado == "Backlog")">Backlog</option>
+                    <option value="ToDo" selected="@(Model.Estado == "ToDo")">To Do</option>
+                    <option value="InProgress" selected="@(Model.Estado == "InProgress")">In Progress</option>
+                    <option value="Done" selected="@(Model.Estado == "Done")">Done</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary btn-sm mt-2">Mover</button>
+            </form>
+        </div>
+        
+    </div>
+ </div>

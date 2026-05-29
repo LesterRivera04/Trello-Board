@@ -1,0 +1,13 @@
+User Story 'Observer' creado correctamente
+User Story 'Observer' creado correctamente
+User Story 'Observer' creado correctamente
+User Story <b>'SweetAlert'</b> creado exitosamente
+User Story <b>'SweetAlert'</b> creado exitosamente
+User Story <b>'SweetAlert'</b> creado exitosamente
+User Story <b>'SweetAlert'</b> creado exitosamente
+User Story <b>'Caremoco'</b> creado exitosamente
+User Story <b>'SweetAlert'</b> creado exitosamente
+User Story <b>'Ejemplo'</b> creado exitosamente
+User Story <b>'Ejemplo 2'</b> creado exitosamente
+User Story <b>'Ejemplo 3'</b> creado exitosamente
+User Story <b>'Ejemplo'</b> creado exitosamente

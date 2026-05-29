@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36429.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileBoardTests", "AgileBoardTests\AgileBoardTests.csproj", "{99068070-2C39-4E9D-B44C-D714F11FA664}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI.Pokemon", "MinimalAPI.Pokemon\MinimalAPI.Pokemon.csproj", "{167D5A4A-343F-4E3A-A6C0-77DA28BEDCE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrelloBoard", "TrelloBoard\TrelloBoard.csproj", "{6013E7C1-7070-3CDF-F3DC-2FABD52A7F02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrelloBoard.API", "TrelloBoard.API\TrelloBoard.API.csproj", "{F3DE5D88-D78C-40F1-A87B-ABC6AD707B93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrelloBoard.MinimalAPI", "TrelloBoard.MinimalAPI\TrelloBoard.MinimalAPI.csproj", "{9D50ED14-D0E3-BD2D-B723-BA45A3E4AACB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99068070-2C39-4E9D-B44C-D714F11FA664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99068070-2C39-4E9D-B44C-D714F11FA664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99068070-2C39-4E9D-B44C-D714F11FA664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99068070-2C39-4E9D-B44C-D714F11FA664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{167D5A4A-343F-4E3A-A6C0-77DA28BEDCE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{167D5A4A-343F-4E3A-A6C0-77DA28BEDCE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{167D5A4A-343F-4E3A-A6C0-77DA28BEDCE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{167D5A4A-343F-4E3A-A6C0-77DA28BEDCE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6013E7C1-7070-3CDF-F3DC-2FABD52A7F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6013E7C1-7070-3CDF-F3DC-2FABD52A7F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6013E7C1-7070-3CDF-F3DC-2FABD52A7F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6013E7C1-7070-3CDF-F3DC-2FABD52A7F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3DE5D88-D78C-40F1-A87B-ABC6AD707B93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3DE5D88-D78C-40F1-A87B-ABC6AD707B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3DE5D88-D78C-40F1-A87B-ABC6AD707B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3DE5D88-D78C-40F1-A87B-ABC6AD707B93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D50ED14-D0E3-BD2D-B723-BA45A3E4AACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D50ED14-D0E3-BD2D-B723-BA45A3E4AACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D50ED14-D0E3-BD2D-B723-BA45A3E4AACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D50ED14-D0E3-BD2D-B723-BA45A3E4AACB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {050E7D67-3484-46AE-A133-BC95817CDCAE}
+	EndGlobalSection
+EndGlobal

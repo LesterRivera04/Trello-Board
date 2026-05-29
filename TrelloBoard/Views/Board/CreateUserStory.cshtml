@@ -1,0 +1,35 @@
+﻿@model CreateUserStory
+
+<form asp-action="Add" method="post" class="mb-4">
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <input asp-for="Titulo" class="form-control shadow-sm" placeholder="Título" name="Titulo" />
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            @*<input asp-for="AsignadoA" class="form-control shadow-sm" placeholder="Asignado a" name="AsignadoA" />*@
+            <select asp-for="AsignadoA" class="form-select shadow-sm" name="AsignadoA">
+                <option value="">-- Selecciona un usuario --</option>
+                @if (ViewBag.Usuarios != null)
+                {
+                    <p>@(ViewBag.Usuarios == null ? "NULL" : "TIENE DATOS")</p>
+                    @foreach (var usuario in ViewBag.Usuarios)
+                    {
+                        <option value="@usuario.Id">@usuario.Nombre @usuario.Apellidos</option>
+                    }
+                }
+                else
+                {
+                    <option value="">No hay usuarios disponibles</option>
+                }
+            </select>
+            <span asp-validation-for="AsignadoA" class="text-danger"></span>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <textarea asp-for="Descripcion" class="form-control shadow-sm" placeholder="Descripción" name="Descripcion" rows="3"></textarea>
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Crear</button>
+</form>

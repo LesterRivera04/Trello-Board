@@ -1,0 +1,137 @@
+﻿@model BoardViewModel
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function () {
+            var Creado = @Html.Raw(Json.Serialize(TempData["UserStory_Creado"]));
+            if (Creado) {
+                Swal.fire({
+                    title: 'Éxito',
+                    html: Creado,
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+            }
+        });
+    </script>
+}
+
+
+<h2 class="mb-4">My Sprint Board</h2>
+
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#crearUserStoryModal">
+    <i class="fa fa-plus-square"></i>&nbsp; Crear User Story
+    @* <i class="fa fa-pencil"></i>&nbsp;<i class="fa fa-edit"></i>&nbsp;<i class="fa fa-file-o"></i>&nbsp;<i class="fa fa-plus-circle"></i> *@
+</button>
+
+<button class="btn btn-secondary mb-3" data-bs-toggle="modal" data-bs-target="#crearUsuarioModal">
+    <i class="fa fa-plus-circle"></i>&nbsp; Usuario nuevo
+    @* <i class="fa fa-pencil"></i>&nbsp;<i class="fa fa-edit"></i>&nbsp;<i class="fa fa-file-o"></i>&nbsp;<i class="fa fa-plus-circle"></i> *@
+</button>
+
+@* <a asp-controller="Usuario" asp-action="CrearUsuario" class="btn btn-secondary mb-3">Crear Usuario</a> *@
+
+<div class="modal fade" id="crearUserStoryModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header navbar-Lester border-0">
+                <h5 class="modal-title">Nuevo User Story</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <partial name="CreateUserStory" model="Model.NuevaHistoria"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="crearUsuarioModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header navbar-Lester-crearUsuario border-0">
+                <h5 class="modal-title">Agregar nuevo Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <partial name="~/Views/Usuario/CrearUsuario.cshtml" model="Model.NuevoUsuario" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    @foreach (var column in new[]
+        {
+        new { Title = "Backlog", Key = "Backlog", Items = Model.Backlog },
+        new { Title = "To Do", Key = "ToDo", Items = Model.ToDo },
+        new { Title = "In Progress", Key = "InProgress", Items = Model.InProgress },
+        new { Title = "Done", Key = "Done", Items = Model.Done }
+        })
+    {
+        <partial name="_Column" model="column" view-data="ViewData"/>
+    }
+    @* {
+        <div class="col-md-3">
+            <div class="bg-light p-2 rounded">
+                <h4 class="text-center">@column.Title</h4>
+
+                @foreach (var story in column.Items)
+                {
+                    <div class="card mb-3 shadow-sm tamano-card-Lester">
+                        <div class="card-body d-flex flex-column">
+                            
+                            <h5>@story.Titulo</h5>
+                            <p>@story.Descripcion</p>
+                            @if (story.Estimacion >= 13)
+                            {
+                                <div class="alert-estimacion"> <!--esto es a lo Lester-->
+                                    ⚠ Historia grande!
+                                </div>
+                                <span class="badge bg-danger">⚠ Alta complejidad</span> <!--esto es bootstrap-->
+                            }
+
+                            <small><strong>Asignado:</strong> @story.AsignadoA</small><br />
+                            <span><small><strong>Estimación:</strong> @story.Estimacion pts</small></span>
+
+                            @*<p>ID: @story.Id</p>
+                            <form asp-action="Move" method="post" class="mt-auto">
+                                <input type="hidden" name="id" value="@story.Id" />
+
+                                <select name="nuevoEstado" class="form-select form-select-sm mt-2">
+
+                                    <option value="Backlog" selected="@(story.Estado == "Backlog")">
+                                        Backlog
+                                    </option>
+
+                                    <option value="ToDo" selected="@(story.Estado == "ToDo")">
+                                        To Do
+                                    </option>
+
+                                    <option value="InProgress" selected="@(story.Estado == "InProgress")">
+                                        In Progress
+                                    </option>
+
+                                    <option value="Done" selected="@(story.Estado == "Done")">
+                                        Done
+                                    </option>
+
+                                </select>
+
+                                <button type="submit" class="btn btn-primary btn-sm mt-2 w-100">
+                                    Mover
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    } *@
+
+</div>
+
