@@ -8,7 +8,5 @@
         public int AsignadoA { get; set; }
         public string Estado { get; set; }
         public int Estimacion { get; set; }
-
-        //
     }
 }

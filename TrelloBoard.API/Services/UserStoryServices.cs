@@ -43,7 +43,6 @@ namespace TrelloBoard.API.Services
 
         public async Task AddAsync(CreateUserStoryDto createDto)
         {
-            //var estimacion = await _httpClient.GetFromJsonAsync<int>("http://localhost:5205/estimate");
             var userStory = new Models.UserStory
             {
                 Titulo = createDto.Titulo,
