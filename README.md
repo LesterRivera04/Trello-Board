@@ -214,16 +214,16 @@ The tests isolate business logic from database dependencies by mocking repositor
 ## Screenshots
 
 ## Kanban Board
-![Kanban Board](imagesREADME/Kanban%20board.png)
+![Kanban Board](ImagesREADME/Kanban%20board.png)
 
 ## Create User Story
-![Create User Story](imagesREADME/add%20User%20Story.png)
+![Create User Story](ImagesREADME/add%20User%20Story.png)
 
 ## Sweet Alert
-![Sweet Alert](imagesREADME/sweet%20Alert.png)
+![Sweet Alert](ImagesREADME/sweet%20Alert.png)
 
 ## Create User
-![Create User](imagesREADME/add%20User.png)
+![Create User](ImagesREADME/add%20User.png)
 
 ## Change Status
-![Change User Story status](imagesREADME/Move%20boton.png)
+![Change User Story status](ImagesREADME/Move%20boton.png)
