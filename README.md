@@ -213,8 +213,6 @@ The tests isolate business logic from database dependencies by mocking repositor
 
 ## Screenshots
 
-Screenshots will be added soon.
-
 ## Kanban Board
 ![Kanban Board](imagesREADME/Kanban%20board.png)
 
@@ -225,7 +223,7 @@ Screenshots will be added soon.
 ![Sweet Alert](imagesREADME/sweet%20Alert.png)
 
 ## Create User
-![Create User](ImagesREADME/add%20User.png)
+![Create User](imagesREADME/add%20User.png)
 
 ## Change Status
-![Change User Story status](ImagesREADME/Move%20boton.png)
+![Change User Story status](imagesREADME/Move%20boton.png)
