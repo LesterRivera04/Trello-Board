@@ -1,0 +1,81 @@
+﻿:root {
+    --tb-light: #ffffff;
+    --tb_red-column: #ae3843;
+    --tb-red-alert: #dc3545;
+    --tb-green-card: #d4edda;
+    --tb-green-card-border: #28a745;
+    --tb-blue-navbar: #111827;
+    --tb-grayBlue-background: #1f2933;
+}
+
+.board-title {
+    color: var(--tb-light);
+}
+
+.column-header {
+    background-color: var(--tb_red-column); /*#f8f9fa*/
+}
+.tamano-card-Lester {
+    height: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+    .tamano-card-Lester:hover {
+        transform: translateY(-3px);
+        transition: 0.2s;
+    }
+
+.alert-estimacion-Lester {
+    background-color: var(--tb-red-alert);
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+.bg-success-Lester {
+    background-color: var(--tb-green-card);
+    border: 2px solid var(--tb-green-card-border);
+}
+
+.titulo-fijo-Lester {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /*aqui le tiro max 2 lineas*/
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 48px;
+}
+
+
+/*---- NavBars ----*/
+.navbar-custom {
+    background-color: var(--tb-blue-navbar);
+    color: white;
+}
+.navbar-Lester {
+    background-color: var(--tb-green-card);
+}
+
+.navbar-Lester-crearUsuario {
+    background-color: lightgray; /*#6c757d;*/
+}
+
+.modal-content {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.avatar-container {
+    width: 65px;
+    height: 65px;
+    /*border: 1px solid black;*/
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*overflow: hidden;*/
+}

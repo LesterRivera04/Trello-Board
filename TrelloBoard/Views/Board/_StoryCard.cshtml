@@ -35,7 +35,19 @@
                     <option value="Done" selected="@(Model.Estado == "Done")">Done</option>
                 </select>
 
-                <button type="submit" class="btn btn-primary btn-sm mt-2">Mover</button>
+                <div class="d-flex align-items-center">
+                    <button type="submit" class="btn btn-primary btn-sm mt-2">Mover</button>
+
+                    <div class="ms-auto">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-secondary btn-sm">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger btn-sm">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </div>
+
+                </div>
             </form>
         </div>
         

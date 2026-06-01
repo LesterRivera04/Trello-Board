@@ -14,7 +14,7 @@ namespace AgileBoardTests
 {
     public class UserStoryServicesTests
     {
-        // prueba sobre creacion de una historia de usuario, validando que se llame al repositorio para guardar la historia
+        // prueba sobre creacion de una historia de usuario, validando que se llame al Services para guardar la historia
 
         [Fact]
         public async Task AddAsync_Should_Create_UserStory_And_Save_It()

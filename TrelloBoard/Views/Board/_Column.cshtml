@@ -1,11 +1,14 @@
 ﻿@model dynamic
 
 <div class="col-md-3">
-   <div class="bg-light p-2 rounded">
+   <div class="column-header p-2 rounded mb-3">
         <h4 class="text-center">@Model.Title</h4>
+    </div>
+    <div class="px-1">
         @foreach (var story in Model.Items)
         {
-            <partial name="_StoryCard" model="story" view-data="ViewData"/>
+            <partial name="_StoryCard" model="story" view-data="ViewData" />
         }
     </div>
+        
 </div>

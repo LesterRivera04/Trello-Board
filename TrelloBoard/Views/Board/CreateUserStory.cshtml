@@ -28,8 +28,16 @@
     </div>
     
     <div class="mb-3">
-        <textarea asp-for="Descripcion" class="form-control shadow-sm" placeholder="Descripción" name="Descripcion" rows="3"></textarea>
+        <textarea asp-for="Descripcion" class="form-control shadow-sm" placeholder="Descripción: 
+        1. As a...
+        2. I want to...
+        3. so that..." 
+        name="Descripcion" rows="4"></textarea>
         <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <textarea asp-for="Acceptance_Criteria" class="form-control shadow-sm" placeholder="Criterios de aceptación" name="Acceptance_Criteria" rows="3"></textarea>
+        <span asp-validation-for="Acceptance_Criteria" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-success">Crear</button>
 </form>

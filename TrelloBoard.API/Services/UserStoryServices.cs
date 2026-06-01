@@ -47,6 +47,7 @@ namespace TrelloBoard.API.Services
             {
                 Titulo = createDto.Titulo,
                 Descripcion = createDto.Descripcion,
+                Acceptance_Criteria = createDto.Acceptance_Criteria,
                 AsignadoA = createDto.AsignadoA,
                 Estado = UserStoryState.Backlog, // Estado inicial
                 Estimacion = createDto.Estimacion // Estimación inicial, luego lo reemplazo con llamada a Minimal API

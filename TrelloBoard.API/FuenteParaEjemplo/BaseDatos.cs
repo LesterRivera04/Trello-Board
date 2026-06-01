@@ -27,6 +27,7 @@ CREATE TABLE UserStory
     Id INT IDENTITY PRIMARY KEY,
     Titulo VARCHAR(50) NOT NULL,
     Descripcion VARCHAR(50) NOT NULL,
+    Acceptance_Criteria VARCHAR(50) NOT NULL,
     AsignadoA INT NOT NULL,
     Estado INT NOT NULL,
     Estimacion INT NOT NULL,
