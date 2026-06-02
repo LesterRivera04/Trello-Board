@@ -12,6 +12,21 @@
     color: var(--tb-light);
 }
 
+.edit-title {
+    color: var(--tb-light);
+    text-align: center;
+}
+
+.form-labels-Lester label {
+    color: var(--tb-light);
+    background-color: var(--tb-blue-navbar);
+    border-radius: 5%;
+    font-size: 1.2em;
+    /*padding-left: 5px;
+    padding-right: 5px;*/
+    padding: 2px 6px 2px 6px; /*top right bottom left*/
+}
+
 .column-header {
     background-color: var(--tb_red-column); /*#f8f9fa*/
 }

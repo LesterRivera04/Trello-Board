@@ -24,23 +24,11 @@ namespace TrelloBoard.Services
             return await _httpClient.GetFromJsonAsync<List<UserStoryViewModel>>("historiasdeusuario");
         }
 
-        public async Task MoveAsync(int id, string nuevoEstado)
+        public async Task<UserStoryViewModel?> GetByIdAsync(int usuarioId)
         {
-            if (!Enum.TryParse<UserStoryState>(nuevoEstado, out var estadoEnum))
-                throw new Exception("Estado inválido");
-
-            Console.WriteLine($"ID enviado desde MVC: {id}");
-            Console.WriteLine($"Estado enviado desde MVC: {(int)estadoEnum}");
-
-            var response = await _httpClient.PutAsJsonAsync(
-                $"historiasdeusuario/{id}", new { Estado = (int)estadoEnum });
-            response.EnsureSuccessStatusCode();
-
-            // Leer la respuesta
-            //var contenido = await response.Content.ReadAsStringAsync();
-            //Console.WriteLine(contenido); // o usa debugger
+            return await _httpClient.GetFromJsonAsync<UserStoryViewModel>($"historiasdeusuario/{usuarioId}");
         }
-
+                                
         public async Task<string> AddAsync(CreateUserStory createDto)
         {
             //var estimacion = await GetRandomEstimateAsync(); // aqui llamaba al MinimalAPI por medio del metodo GetRandomEstimateAsync,
@@ -64,7 +52,7 @@ namespace TrelloBoard.Services
             subject.Suscribir(new NotificacionObserver());
             subject.Suscribir(new LogObserver());
 
-            var mensajeCreado = $"User Story <b>'{createDto.Titulo}'</b> creado exitosamente";
+            var mensajeCreado = $"User Story <b>'{createDto.Titulo}'</b> creado exitosamente, fecha y hora: " + DateTime.Now;
             subject.NotificarTodos(mensajeCreado);
 
             return mensajeCreado;
@@ -80,7 +68,7 @@ namespace TrelloBoard.Services
         {
             return await _httpClient.GetFromJsonAsync<List<Usuario>>("usuarios");
         }
-
+                
         public async Task<string> GetPokemonImageAsync(int id)
         {
             var response = await _httpClient.GetAsync($"https://pokeapi.co/api/v2/pokemon/{id}");
@@ -95,6 +83,50 @@ namespace TrelloBoard.Services
                 .GetString();
 
             return image ?? "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"; //fallback a imagen de Bulbasaur
+        }
+
+        public async Task MoveAsync(int id, string nuevoEstado)
+        {
+            if (!Enum.TryParse<UserStoryState>(nuevoEstado, out var estadoEnum))
+                throw new Exception("Estado inválido");
+
+            Console.WriteLine($"ID enviado desde MVC: {id}");
+            Console.WriteLine($"Estado enviado desde MVC: {(int)estadoEnum}");
+
+            var response = await _httpClient.PutAsJsonAsync(
+                $"historiasdeusuario/{id}", new { Estado = (int)estadoEnum });
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task EditAsync(int id, EditUserStoryViewModel updateDto)
+        {
+            var userStory = await GetByIdAsync(id);
+
+            var response = await _httpClient.PutAsJsonAsync($"historiasdeusuario/Edit/{id}", updateDto);
+            response.EnsureSuccessStatusCode();
+
+            var subject = new UserStorySubject();
+            subject.Suscribir(new NotificacionObserver());
+            subject.Suscribir(new LogObserver());
+                        
+            var cardEditado = $"User Story <b>{userStory?.Titulo}</b> editado exitosamente, fecha y hora: " + DateTime.Now;
+            subject.NotificarTodos(cardEditado);
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var userStory = await GetByIdAsync(id);
+
+            var response = await _httpClient.DeleteAsync($"historiasdeusuario/{id}");
+            response.EnsureSuccessStatusCode();
+
+            var subject = new UserStorySubject();
+            subject.Suscribir(new NotificacionObserver());
+            subject.Suscribir(new LogObserver());
+
+            var mensajeEliminado = $"User Story <b>{userStory?.Titulo}</b> eliminada exitosamente, fecha y hora: " + DateTime.Now;
+            subject.NotificarTodos(mensajeEliminado);
+
         }
     }
 }

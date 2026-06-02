@@ -42,9 +42,11 @@
                         <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-secondary btn-sm">
                             <i class="fa fa-pencil"></i>
                         </a>
-                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger btn-sm">
+                        <button type="submit" formaction="@Url.Action("Delete", new { id = Model.Id })" 
+                            onclick="return confirm('¿Estás seguro de que deseas eliminar esta historia?');" 
+                            class="btn btn-outline-danger btn-sm">
                             <i class="fa fa-trash"></i>
-                        </a>
+                        </button>
                     </div>
 
                 </div>

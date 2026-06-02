@@ -58,6 +58,24 @@ namespace TrelloBoard.API.Controllers
             return NoContent();
         }
 
+        //PUT: api/UserStory/Edit/{id}
+        [HttpPut("Edit/{id}")]
+        public async Task<IActionResult> Edit(int id, EditUserStoryDto userStoryEditDto)
+        {
+            var existingUserStory = await _services.GetByIdAsync(id);
+            if (existingUserStory == null)
+            {
+                Console.WriteLine("NO SE ENCONTRÓ LA HISTORIA EN DB"); //para probar error en MVC
+                return NotFound();
+            }
+
+            await _services.EditAsync(id, userStoryEditDto);
+
+            Console.WriteLine("EDIT EJECUTADO CORRECTAMENTE");       //para probar error en MVC
+
+            return NoContent();
+        }
+
         //DELETE: api/UserStory/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

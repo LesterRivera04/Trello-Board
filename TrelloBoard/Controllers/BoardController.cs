@@ -13,6 +13,7 @@ namespace TrelloBoard.Controllers
             _userStoryAPIServices = userStoryAPIServices;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             ViewData["DoneColor"] = "bg-success-Lester";
@@ -55,11 +56,10 @@ namespace TrelloBoard.Controllers
             return View(board);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Move(int id, string nuevoEstado)
+        [HttpGet]
+        public async Task<IActionResult> CreateUserStory()
         {
-            await _userStoryAPIServices.MoveAsync(id, nuevoEstado);
-            return RedirectToAction("Index");
+            return View();
         }
 
         [HttpPost]
@@ -78,11 +78,43 @@ namespace TrelloBoard.Controllers
             TempData.Keep("UserStroy_Creado");
             return RedirectToAction("Index");
         }
-                
+
+        [HttpPost]
+        public async Task<IActionResult> Move(int id, string nuevoEstado)
+        {
+            await _userStoryAPIServices.MoveAsync(id, nuevoEstado);
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
-        public async Task<IActionResult> CreateUserStory()
-        {            
-            return View();
+        public async Task<IActionResult> Edit(int id)
+        {
+            var userStory = await _userStoryAPIServices.GetByIdAsync(id);
+            if (userStory == null)
+                return NotFound();
+            var usuarios = await _userStoryAPIServices.GetUsuariosAsync();
+            ViewBag.Usuarios = usuarios;
+            return View(userStory);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, EditUserStoryViewModel updateDto)
+            {
+            if (!ModelState.IsValid)
+            {
+                var usuarios = await _userStoryAPIServices.GetUsuariosAsync();
+                ViewBag.Usuarios = usuarios;
+                return View(updateDto);
+            }
+            await _userStoryAPIServices.EditAsync(id, updateDto);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _userStoryAPIServices.DeleteAsync(id);
+            return RedirectToAction("Index");
         }
     }
 }

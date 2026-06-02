@@ -8,6 +8,7 @@ namespace TrelloBoard.API.Services
         Task<UserStoryDto> GetByIdAsync(int id);
         Task AddAsync(CreateUserStoryDto createDto);
         Task UpdateAsync(int id, UpdateUserStoryDto updateDto);
+        Task EditAsync(int id, EditUserStoryDto editDto);
         Task DeleteAsync(int id);
     }
 }

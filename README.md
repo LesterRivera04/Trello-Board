@@ -227,3 +227,12 @@ The tests isolate business logic from database dependencies by mocking repositor
 
 ## Change Status
 ![Change User Story status](ImagesREADME/Move%20boton.png)
+
+## Edit User Story
+![Edit User Story](ImagesREADME/edit%20User%20Story.png)
+
+## Delete User Story
+![Delete User Story](ImagesREADME/delete%20User%20Story.png)
+
+## Logs.txt
+![Logs.txt](ImagesREADME/logs%20txt.png)
